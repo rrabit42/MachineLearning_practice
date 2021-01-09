@@ -163,6 +163,31 @@ model.compile(loss='mse')
 
 * ```model.summary()```: 모델 구조 확인 => 모델 구조 해석 필요  
 
+## 부록1: 데이터를 위한 팁  
+### 데이터 타입 조정  
+* 변수(칼럼) 타입 확인: 데이터.dtypes  
+* 변수를 범주형으로 변경: ```데이터['칼럼명'].astype('category')```  
+* 변수를 수치형으로 변경:  
+```
+데이터['칼럼명'].astype('int')
+데이터['칼럼명'].astype('float')
+```
+### NA값 처리  
+* NA 값의 처리  
+* NA 갯수 체크: ```데이터.isna().sum()```  
+* NA 값 채우기: ```데이터['칼럼명'].fillna(특정숫자)```  
+
+## 부록2: 모델을 위한 팁  
+* **BatchNormalization layer**를 사용한다.  
+* activation을 Dense와 분리한다 => BatchNormalization을 사용하기 위해(Dense와 activation 사이에 써주면 된다.)  
+* BatchNormalization layer 원리는 따로 공부해라!  
+```
+# 사용할 레이어
+
+tf.keras.layers.BatchNormalization()
+tf.keras.layers.Activation('swish')
+```
+
 ## 회귀(수치 데이터) 실습  
 * [레모네이드 판매 예측](https://github.com/rrabit42/study_MachineLearning/blob/main/Tensorflow101/lemonade.py)  
 * [보스턴 집값 예측](https://github.com/rrabit42/study_MachineLearning/blob/main/Tensorflow101/boston.py)  
@@ -170,3 +195,13 @@ model.compile(loss='mse')
 ## 분류(범주형 데이터) 실습  
 * [아이리스 품종 분류](https://github.com/rrabit42/study_MachineLearning/blob/main/Tensorflow101/iris.py) 
 
+## 히든레이어 실습
+* [보스턴 집값 예측 with hidden layer](https://github.com/rrabit42/study_MachineLearning/blob/master/Tensorflow101/bostom_hidden.py)  
+* [아이리스 품종 분류 with hidden layer](https://github.com/rrabit42/study_MachineLearning/blob/master/Tensorflow101/iris_hidden.py)  
+
+## 부록1: 데이터를 위한 팁 실습  
+* [아이리스](https://github.com/rrabit42/study_MachineLearning/blob/master/Tensorflow101/data_tip.py)  
+
+## 부록2: 모델을 위한 팁 실습  
+* [보스턴](https://github.com/rrabit42/study_MachineLearning/blob/master/Tensorflow101/model_tip_boston.py)
+* [아이리스](https://github.com/rrabit42/study_MachineLearning/blob/master/Tensorflow101/model_tip_iris.py)
