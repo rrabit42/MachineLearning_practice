@@ -136,6 +136,32 @@ y2 = w'1x1 + w'2x2 + ... + w'13x13 +b'
 * **f**는 퍼셉트론의 출력이 어떤 형태로 나가야하는지 조절  
 * 이런 함수를 **활성화 함수(Activation)** 이라고 함  
 
+## 히든레이어  
+* 퍼셉트론을 여러개 연결한 진짜 깊은 신경망 모델을 만들자 => 기존의 perceptron을 연결만 하면됨.  
+<img width="400" alt="8" src="https://user-images.githubusercontent.com/46364778/104103039-61651380-52e3-11eb-87d2-fbcf07ed13c8.PNG">  
+
+* **hidden layer**: 5개의 node => 5개 perceptron 필요  
+* ```(506, 13) <--input:13/output:5--> (506,5) <--input:5/output:1--> (506,1) ...``` : 이렇게 연속적 연결 => 딥러닝!! 인공 신경망!!  
+
+```
+X = tf.keras.layers.Input(shape=[13])
+H = tf.keras.layers.Dense(5, activation='swish')(X)   // swish는 hidden layer의 함수, 최근에 발표됨, 좋음!
+Y = tf.keras.layers.Dense(1)(H)
+model = tf.keras.models.Model(X,Y)
+model.compile(loss='mse')
+```  
+* hidden layer 여러개 => 더 똑똑한 모델  
+```
+X = tf.keras.layers.Input(shape=[13])
+H = tf.keras.layers.Dense(5, activation='swish')(X)   // input: X, Ouput: H
+H = tf.keras.layers.Dense(5, activation='swish')(H)   // input: H, Ouput: H
+H = tf.keras.layers.Dense(5, activation='swish')(H)   // input: H, Ouput: H
+Y = tf.keras.layers.Dense(1)(H)                       // input: H, Ouput: Y
+model = tf.keras.models.Model(X,Y)
+model.compile(loss='mse')
+```  
+
+* ```model.summary()```: 모델 구조 확인 => 모델 구조 해석 필요  
 
 ## 회귀(수치 데이터) 실습  
 * [레모네이드 판매 예측](https://github.com/rrabit42/study_MachineLearning/blob/main/Tensorflow101/lemonade.py)  
