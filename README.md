@@ -5,4 +5,5 @@
 * [머신러닝1](https://opentutorials.org/course/4548)  
 * [Tensorflow101](https://opentutorials.org/module/4966) / [코드](https://github.com/blackdew/tensorflow1/tree/master/csv)  
 * [모두를 위한 딥러닝 시즌1](https://hunkim.github.io/ml/) => 아이패드로 공부  
-* [Tensorflow2 강의](https://www.youtube.com/watch?v=-MIH2wNfylo&list=PLtm_YtKTtDkQJtgGSQnZzMJBRHyqANnQi) => ing
+* [Tensorflow2 강의](https://www.youtube.com/watch?v=-MIH2wNfylo&list=PLtm_YtKTtDkQJtgGSQnZzMJBRHyqANnQi) => ing  
+[텐서플로우 2.0 튜토리얼](https://www.youtube.com/watch?v=v0RoLCmqI54&list=PLSlDi2AkDv810N_uje_mCJuMthkU-oM1i)  
